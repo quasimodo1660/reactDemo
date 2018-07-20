@@ -1,22 +1,13 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import CurrentTime from './Components/CurrentTime'
+import SquareView from './Components/Square'
 
 
 
 class App extends Component {
-  constructor(props){
-    super(props)
-    this.state={curTime:null}
-  }
-  componentDidMount(){
-    setInterval(()=>{
-      this.setState({
-        curTime:new Date().toLocaleTimeString()
-      })
-    },1000)
-  }
+  
 
   render() {
     return (
@@ -28,7 +19,10 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <p>The time is: {this.state.curTime}</p>
+        <CurrentTime/>
+        <SquareView bgcolor='red' text='1'/>
+        <SquareView bgcolor='blue' text='2'/>
+        <SquareView bgcolor='pink' text='3'/>
       </div>
       
     );
