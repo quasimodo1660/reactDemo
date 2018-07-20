@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import CurrentTime from './Components/CurrentTime'
 import SquareView from './Components/Square'
-
+import VoteChild from './Components/VoteLibrary'
 
 
 class App extends Component {
@@ -23,6 +23,10 @@ class App extends Component {
         <SquareView bgcolor='red' text='1'/>
         <SquareView bgcolor='blue' text='2'/>
         <SquareView bgcolor='pink' text='3'/>
+        
+        <VoteChild text='React' />
+        <VoteChild text='Vue' />
+        
       </div>
       
     );
