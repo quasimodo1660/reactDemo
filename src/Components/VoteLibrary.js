@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import {Icon,Button} from 'react-materialize'
+import {Button} from 'react-materialize'
 
 
 

@@ -4,7 +4,7 @@ import './App.css';
 import CurrentTime from './Components/CurrentTime'
 import SquareView from './Components/Square'
 import VoteChild from './Components/VoteLibrary'
-
+import Counter from './Components/Counter'
 
 class App extends Component {
   
@@ -26,7 +26,9 @@ class App extends Component {
         
         <VoteChild text='React' />
         <VoteChild text='Vue' />
-        
+        <VoteChild text='Angular' />
+        <VoteChild text='Ember' />
+        <Counter />
       </div>
       
     );
