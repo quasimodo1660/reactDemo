@@ -5,6 +5,10 @@ import CurrentTime from './Components/CurrentTime'
 import SquareView from './Components/Square'
 import VoteChild from './Components/VoteLibrary'
 import Counter from './Components/Counter'
+import {Navbar, NavbarBrand,} from 'reactstrap'
+import AppBar from './Components/AppBar'
+
+
 
 class App extends Component {
   
@@ -12,10 +16,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to asbReact</h1>
-        </header>
+        </header> */}
+       
+        <AppBar/>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>

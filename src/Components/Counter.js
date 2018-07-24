@@ -4,10 +4,11 @@ import {Icon,Button} from 'react-materialize'
 
 const CounterDiv = styled.div`
     algin-self:center;
-    width:20%;
+    width:30%;
     height:15%
     border-style:solid;
     border-width: 1.5px;
+    padding:5px;
     margin:auto
 `;
 
