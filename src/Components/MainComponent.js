@@ -19,7 +19,7 @@ export default class Main extends Component{
 
     onDishSelect(dishId) {
         this.setState({ selectedDish: dishId});
-        console.log(this.state.selectedDish)
+        // console.log(this.state.selectedDish)
     }
 
 
