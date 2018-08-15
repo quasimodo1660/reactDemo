@@ -1,9 +1,9 @@
 import React,{Component} from 'react'
-import CNavbar from './Navbar'
+import CNavbar from './HeaderComponent'
 import {DISHES} from '../Shared/dishes'
 import Menu from './MenuComponent'
 import Dishdetail from './DishdetailComponent'
-
+import Footer from './FooterComponent'
 
 
 
@@ -33,7 +33,7 @@ export default class Main extends Component{
                 onClick={(dishId) => this.onDishSelect(dishId)}
             />
             <Dishdetail dish={this.state.dishes.filter((dish)=>dish.id===this.state.selectedDish)[0]} />
-            
+            <Footer />
         </div>
         )
     }
