@@ -5,7 +5,7 @@ import CurrentTime from './Components/CurrentTime'
 import SquareView from './Components/Square'
 import VoteChild from './Components/VoteLibrary'
 import Counter from './Components/Counter'
-import {Navbar, NavbarBrand,} from 'reactstrap'
+import {Navbar, NavbarBrand,} from '../../../Library/Caches/typescript/2.9/node_modules/@types/reactstrap'
 import AppBar from './Components/AppBar'
 
 

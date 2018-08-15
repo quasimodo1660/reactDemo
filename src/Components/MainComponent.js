@@ -1,10 +1,14 @@
 import React,{Component} from 'react'
 import CNavbar from './HeaderComponent'
 import {DISHES} from '../Shared/dishes'
+import {COMMENTS} from '../Shared/comments'
+import {LEADERS} from '../Shared/leaders'
+import {PROMOTIONS} from '../Shared/promotions'
 import Menu from './MenuComponent'
 import Dishdetail from './DishdetailComponent'
 import Footer from './FooterComponent'
 import Home from './HomeComponent'
+import Contact from './ContactComponent'
 import {Switch, Route, Redirect} from 'react-router-dom'
 
 
@@ -16,6 +20,9 @@ export default class Main extends Component{
         super(props);
         this.state={
             dishes:DISHES,
+            comments:COMMENTS,
+            promotions:PROMOTIONS,
+            leaders:LEADERS
         }
     }
 
@@ -23,7 +30,11 @@ export default class Main extends Component{
 
         const HomePage=()=>{
             return (
-                <Home />
+                <Home 
+                    dish={this.state.dishes.filter((dish)=>dish.featured)[0]}
+                    promotion={this.state.promotions.filter((promotion)=>promotion.featured)[0]}
+                    leader={this.state.leaders.filter((leader)=>leader.featured)[0]}
+                />
             )
         }
         return (
@@ -31,6 +42,7 @@ export default class Main extends Component{
             <CNavbar />
             <Switch>
                 <Route path='/home' component={HomePage} />
+                <Route exact path='/contactus' component={Contact} />
                 <Route exact path='/menu' component={()=><Menu dishes={this.state.dishes}/>} />
                 <Redirect to='/home' />
             </Switch>
