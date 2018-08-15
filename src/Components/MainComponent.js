@@ -4,6 +4,9 @@ import {DISHES} from '../Shared/dishes'
 import Menu from './MenuComponent'
 import Dishdetail from './DishdetailComponent'
 import Footer from './FooterComponent'
+import Home from './HomeComponent'
+import {Switch, Route, Redirect} from 'react-router-dom'
+
 
 
 
@@ -13,26 +16,24 @@ export default class Main extends Component{
         super(props);
         this.state={
             dishes:DISHES,
-            selectedDish:null
         }
     }
 
-    onDishSelect(dishId) {
-        this.setState({ selectedDish: dishId});
-        // console.log(this.state.selectedDish)
-    }
-
-
     render(){
+
+        const HomePage=()=>{
+            return (
+                <Home />
+            )
+        }
         return (
         <div>
             <CNavbar />
-            
-            <Menu 
-                dishes={this.state.dishes} 
-                onClick={(dishId) => this.onDishSelect(dishId)}
-            />
-            <Dishdetail dish={this.state.dishes.filter((dish)=>dish.id===this.state.selectedDish)[0]} />
+            <Switch>
+                <Route path='/home' component={HomePage} />
+                <Route exact path='/menu' component={()=><Menu dishes={this.state.dishes}/>} />
+                <Redirect to='/home' />
+            </Switch>
             <Footer />
         </div>
         )
