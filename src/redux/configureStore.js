@@ -15,5 +15,6 @@ export const ConfigureStore = () => {
             leaders:Leaders
         })
     )
+    // console.log(store)
     return store
 }

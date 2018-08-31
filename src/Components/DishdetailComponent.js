@@ -17,7 +17,8 @@ class CommentForm extends React.Component {
             isModalOpen:false
         }
         this.toggleModal=this.toggleModal.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
+       
     }
 
     toggleModal() {
@@ -28,9 +29,7 @@ class CommentForm extends React.Component {
     
     handleSubmit(values) {
         this.toggleModal();
-        console.log('Content is: ' + JSON.stringify(values));
-        alert('Content is: ' + JSON.stringify(values));
-        // event.preventDefault();
+        this.props.addComment(this.props.dishID,Number(values.rating),values.name,values.comment)
     }
 
     render(){
@@ -153,7 +152,8 @@ const DishDetail=(props)=>{
                 <RenderDish dish={props.dish} />
                 <div className="col-12 col-md-5 m-1">
                     <RenderComments comments={props.comments} />
-                    <CommentForm />
+                    <CommentForm    addComment={props.addComment} 
+                                    dishID={props.dish.id}/>
                 </div>
             </div>
             </div>
