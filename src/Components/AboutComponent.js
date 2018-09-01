@@ -1,13 +1,16 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import {Loading} from './LoadingComponent'
+import { baseUrl } from '../Shared/baseUrl';
+import { Fade, Stagger } from 'react-animation-components';
 
 
 function RenderLeader({leader}) {
     return (
         <Media className='mt-1' style={{marginBottom:'2em'}}>
             <Media left href="#">
-                <Media object src={leader.image} alt={leader.name} style={{marginRight:'2em'}}/>
+                <Media object src={baseUrl+leader.image} alt={leader.name} style={{marginRight:'2em'}}/>
             </Media>
             <Media body>
                 <Media heading>
@@ -25,12 +28,48 @@ function RenderLeader({leader}) {
 
 function About(props) {
 
-    const leaders = props.leaders.map((leader) => {
+    const leaders = props.leaders.leaders.map((leader) => {
         return (
+            <Fade in key={'F'+leader.id}>
             <RenderLeader key={leader.id} leader={leader} />
+            </Fade>
         );
     });
 
+    let displayLeaders = null
+    
+    if(props.leaders.isLoading){
+        displayLeaders = (     
+                <div className='row'>
+                    <Loading/>
+                </div>
+        )
+    }
+
+    else if(props.leaders.errMess){
+        displayLeaders=(       
+                <div className='row'>
+                   <h4>{props.leaders.errMess}</h4>
+                </div>
+        )
+    }
+
+    else{
+        displayLeaders=(
+           
+            <Media list>
+                <Stagger in>
+                    {leaders}
+                </Stagger>
+            </Media>
+            
+        )
+    }
+
+
+  
+
+   
     return(
         <div className="container">
             <div className="row">
@@ -81,18 +120,20 @@ function About(props) {
                     </Card>
                 </div>
             </div>
+           
             <div className="row row-content">
                 <div className="col-12">
                     <h2>Corporate Leadership</h2>
                 </div>
                 <div className="col-12 col-md m1">
-                    <Media list>
-                        {leaders}
-                    </Media>
+                   {displayLeaders}
                 </div>
             </div>
+           
         </div>
     );
+    
+    
 }
 
 export default About;    
